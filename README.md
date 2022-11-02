@@ -3,7 +3,8 @@
 ## Requirements
 
 * Python 3.x
-* Ansible 5.x (`pip3 install ansible`)
+* Python 3 Pip (sudo apt install python3-pip)
+* Ansible 5.x (`sudo pip3 install ansible`)
 * It's better to have Ubuntu or other Debian-based linux (for other linux distros you will need to modify package installation commands)
 * Template works on localhost, but you can do it remotely on a server that is available through SSH by modifying [inventory](./inventory/hosts) (remote group) and [site.yml](./site.yml) (host variable)
 
@@ -30,9 +31,9 @@ The playbook itself is an Ansible version of Lab 1 with extra steps :)
 To run the playbook if it's written correctly:
 ```bash
 # If you have paswordless SUDO
-ansible-playbook local site.yml
+ansible-playbook site.yml
 # or if you have password SUDO
-ansible-playbook local site.yml -K
+ansible-playbook site.yml -K
 ```
 
 ## Cleanup
@@ -41,9 +42,9 @@ The [cleanup.yml](./cleanup.yml) playbook can be used to remove everything from 
 
 ```bash
 # If you have paswordless SUDO
-ansible-playbook local cleanup.yml
+ansible-playbook cleanup.yml
 # or if you have password SUDO
-ansible-playbook local cleanup.yml -K
+ansible-playbook cleanup.yml -K
 ```
 
 ## Submission
