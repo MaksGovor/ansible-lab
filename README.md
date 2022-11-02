@@ -3,7 +3,7 @@
 ## Requirements
 
 * Python 3.x
-* Ansible 5.x
+* Ansible 5.x (`pip3 install ansible`)
 * It's better to have Ubuntu or other Debian-based linux (for other linux distros you will need to modify package installation commands)
 * Template works on localhost, but you can do it remotely on a server that is available through SSH by modifying [inventory](./inventory/hosts) (remote group) and [site.yml](./site.yml) (host variable)
 
