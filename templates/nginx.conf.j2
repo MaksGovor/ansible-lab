@@ -10,13 +10,15 @@ pid /run/nginx.pid;
 include /etc/nginx/modules-enabled/*.conf;
 
 events {
-    worker_connections 768;
+    worker_connections 2048;
 }
 
 http {
     sendfile on;
     tcp_nopush on;
     types_hash_max_size 2048;
+
+    keepalive_timeout 45;
 
     include /etc/nginx/mime.types;
     default_type application/octet-stream;
@@ -28,9 +30,15 @@ http {
     gzip on;
 
     server {
-        {#
-            TODO: Nginx server config using proxy_pass and {{ app_port }}
-        #}
-        # TODO: Your code here
+        listen 80;
+        server_name localhost;
+
+        location / {
+            proxy_pass http://localhost:{{ app_port }};
+            proxy_buffering off;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
     }
 }
