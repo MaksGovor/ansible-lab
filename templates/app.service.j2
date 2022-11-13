@@ -13,7 +13,7 @@ WantedBy=multi-user.target
 
 [Service]
 ExecStart=/usr/bin/java -jar {{ app_dir }}/{{ app_file }}
-User={{ ansible_user_id }}
+User={{ java_user_name }}
 Restart=always
 RestartSec=10
 Environment=PORT={{ app_port }}

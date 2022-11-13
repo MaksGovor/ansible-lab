@@ -3,6 +3,11 @@
   hosts: local
   become: true
   tasks:
+    - name: Delete user
+      ansible.builtin.user:
+        name: "{{ java_user_name }}"
+        state: absent
+        remove: yes
     - name: Remove packages
       apt:
         name: "{{ item }}"

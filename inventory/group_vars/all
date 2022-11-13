@@ -3,6 +3,7 @@
 packages:
   - nginx
   - openjdk-11-jre
+java_user_name: greg
 aptcachetime: 3600
 app_dir: /opt/sample
 download_url: https://storage.googleapis.com/devops-practice-files/systemd/ServicesLab-0.0.1.jar

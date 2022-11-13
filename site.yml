@@ -5,6 +5,12 @@
   gather_facts: true
 
   tasks:
+    - name: Create a user with name {{ java_user_name }} on whose behalf java app will be run
+      become: true
+      ansible.builtin.user:
+        name: "{{ java_user_name }}"
+        comment: user with name on whose behalf java app will be run
+
     # Use {{ aptcachetime }} variable to specify cache time
     # Find implementation in https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html#examples
     - name: Install some basic packages defined in variable "packages"
